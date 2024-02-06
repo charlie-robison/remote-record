@@ -5,6 +5,7 @@
 #ifndef SERVER_LIVEPLAYSERVER_H
 #define SERVER_LIVEPLAYSERVER_H
 
+#include <iostream>
 #include <string>
 #include "boost/asio.hpp"
 
@@ -13,9 +14,7 @@ using boost::asio::ip::udp;
 /** Provides the methods and properties for the live playing server. */
 class LivePlayServer {
 private:
-    boost::asio::io_context io_context;
-    udp::socket socket;
-    int sendSoundData();
+    int sendSoundData(udp::socket, std::string);
 public:
     int runServer();
 };
