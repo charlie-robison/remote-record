@@ -163,10 +163,6 @@
 		},
 		{
 			"isExternal" : true,
-			"path" : "/Users/charlierobison/opt/anaconda3/lib/cmake/Boost-1.73.0/BoostConfigVersion.cmake"
-		},
-		{
-			"isExternal" : true,
 			"path" : "/opt/homebrew/lib/cmake/Boost-1.83.0/BoostConfigVersion.cmake"
 		},
 		{

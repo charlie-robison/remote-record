@@ -1,5 +1,4 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/server -B /Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/server/cmake-build-debug
--- Found Boost: /opt/homebrew/lib/cmake/Boost-1.83.0/BoostConfig.cmake (found suitable version "1.83.0", minimum required is "1.83.0") found components: system filesystem thread 
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/server/cmake-build-debug
