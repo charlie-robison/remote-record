@@ -1,0 +1,3 @@
+/Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/client/cmake-build-debug/CMakeFiles/client.dir
+/Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/client/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
