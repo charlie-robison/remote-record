@@ -5,7 +5,17 @@
 #include "LivePlayServer.h"
 
 int LivePlayServer::sendSoundData(udp::socket socket, std::string message) {
+    int returnVal;
 
+    // Attempts to send a message from the server to the client.
+    try {
+        socket.send(boost::asio::buffer(message));
+        returnVal = 0;
+    } catch (std::exception& e) {
+        returnVal = -1;
+    }
+
+    return returnVal;
 }
 
 /**
@@ -23,5 +33,6 @@ int LivePlayServer::runServer() {
     } catch (std::exception& e) {
         returnVal = -1;
     }
+
     return returnVal;
 }
