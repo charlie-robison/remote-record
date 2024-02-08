@@ -17,9 +17,11 @@ int RemoteRecordServer::sendAudio(tcp::socket * socket) {
         boost::asio::write(*socket, boost::asio::buffer(message));
         returnVal = 0;
     } catch (std::exception& e) {
-        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << "Failed to send message: " << e.what() << std::endl;
         returnVal = -1;
     }
+
+    return returnVal;
 }
 
 /**
@@ -40,6 +42,11 @@ int RemoteRecordServer::connectToClient(boost::asio::io_context *io_context, tcp
         (*acceptor).accept(socket);
         std::cout << "Connected to client." << std::endl;
         returnVal = 0;
+
+        // Sends audio to the client.
+        if (sendAudio(&socket) == 0) {
+            std::cout << "Message sent: " << message << "." << std::endl;
+        }
 
         // Closes socket connection with client (TCP teardown).
         (socket).close();
