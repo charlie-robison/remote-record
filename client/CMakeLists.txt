@@ -12,5 +12,5 @@ if(NOT Boost_FOUND)
     message(FATAL_ERROR "Could not find boost!")
 endif()
 
-add_executable(client main.cpp)
+add_executable(client main.cpp RemoteRecordClient.cpp RemoteRecordClient.h)
 target_link_libraries(client ${Boost_LIBRARIES})

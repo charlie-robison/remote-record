@@ -54,6 +54,14 @@ build CMakeFiles/client.dir/main.cpp.o: CXX_COMPILER__client_Debug /Users/charli
   OBJECT_DIR = CMakeFiles/client.dir
   OBJECT_FILE_DIR = CMakeFiles/client.dir
 
+build CMakeFiles/client.dir/RemoteRecordClient.cpp.o: CXX_COMPILER__client_Debug /Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/client/RemoteRecordClient.cpp || cmake_object_order_depends_target_client
+  DEFINES = -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_FILESYSTEM_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB
+  DEP_FILE = CMakeFiles/client.dir/RemoteRecordClient.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fcolor-diagnostics -std=gnu++17
+  INCLUDES = -I/opt/homebrew/Cellar/boost/1.83.0/include -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/client.dir
+  OBJECT_FILE_DIR = CMakeFiles/client.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target client
@@ -62,7 +70,7 @@ build CMakeFiles/client.dir/main.cpp.o: CXX_COMPILER__client_Debug /Users/charli
 #############################################
 # Link the executable client
 
-build client: CXX_EXECUTABLE_LINKER__client_Debug CMakeFiles/client.dir/main.cpp.o | /opt/homebrew/lib/libboost_system-mt.dylib /opt/homebrew/lib/libboost_filesystem-mt.dylib /opt/homebrew/lib/libboost_thread-mt.dylib /opt/homebrew/lib/libboost_atomic-mt.dylib
+build client: CXX_EXECUTABLE_LINKER__client_Debug CMakeFiles/client.dir/main.cpp.o CMakeFiles/client.dir/RemoteRecordClient.cpp.o | /opt/homebrew/lib/libboost_system-mt.dylib /opt/homebrew/lib/libboost_filesystem-mt.dylib /opt/homebrew/lib/libboost_thread-mt.dylib /opt/homebrew/lib/libboost_atomic-mt.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
   LINK_LIBRARIES = /opt/homebrew/lib/libboost_system-mt.dylib  /opt/homebrew/lib/libboost_filesystem-mt.dylib  /opt/homebrew/lib/libboost_thread-mt.dylib  /opt/homebrew/lib/libboost_atomic-mt.dylib
   OBJECT_DIR = CMakeFiles/client.dir
