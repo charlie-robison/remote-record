@@ -16,7 +16,7 @@ private:
     int sendAudio(tcp::socket *);
     int connectToClient(boost::asio::io_context * io_context, tcp::acceptor * acceptor);
 public:
-    int startServer();
+    void startServer(int);
 };
 
 
