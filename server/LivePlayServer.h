@@ -10,11 +10,12 @@
 #include "boost/asio.hpp"
 
 using boost::asio::ip::udp;
+using boost::asio::ip::address;
 
 /** Provides the methods and properties for the live playing server. */
 class LivePlayServer {
 private:
-    int sendSoundData(udp::socket, std::string);
+    int sendSoundData(udp::socket *, std::string);
 public:
     int runServer();
 };
