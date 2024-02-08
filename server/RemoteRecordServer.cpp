@@ -10,7 +10,6 @@
  */
 RemoteRecordServer::RemoteRecordServer(int portNum) {
     this->portNum = portNum;
-    this->message = "";
 }
 
 /**
@@ -18,7 +17,7 @@ RemoteRecordServer::RemoteRecordServer(int portNum) {
  * @param socket - The client socket.
  * @return 0 if the send was successful and -1 otherwise.
  */
-int RemoteRecordServer::sendAudio(tcp::socket * socket) {
+int RemoteRecordServer::sendAudio(tcp::socket * socket, std::string message) {
     int returnVal;
 
     try {
@@ -41,6 +40,7 @@ int RemoteRecordServer::sendAudio(tcp::socket * socket) {
  */
 int RemoteRecordServer::connectToClient(boost::asio::io_context *io_context, tcp::acceptor *acceptor) {
     int returnVal;
+    std::string message;
     boost::asio::streambuf receive_buffer;
 
     try {
@@ -52,9 +52,11 @@ int RemoteRecordServer::connectToClient(boost::asio::io_context *io_context, tcp
         std::cout << "Connected to client." << std::endl;
         returnVal = 0;
 
+        message = "Hello From Server.\n";
+
         // Sends audio to the client.
-        if (sendAudio(&socket) == 0) {
-            std::cout << "Message sent: " << message << "." << std::endl;
+        if (sendAudio(&socket, message) == 0) {
+            std::cout << "Message sent: " << message;
         }
 
         // Closes socket connection with client (TCP teardown).
@@ -79,7 +81,7 @@ void RemoteRecordServer::startServer() {
         // Listens for ipv4 addresses and on the port number given.
         tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), portNum));
 
-        std::cout << "Server is running..." << std::endl;
+        std::cout << "Server is running on port " << portNum << "..." << std::endl;
         std::cout << "Accepting client connections..." << std::endl;
 
         // Waits for client connections.
