@@ -5,6 +5,14 @@
 #include "RemoteRecordClient.h"
 
 /**
+ * Creates a new RemoteRecordClient.
+ * @param portNum - The port number the server process is running on.
+ */
+RemoteRecordClient::RemoteRecordClient(int portNum) {
+    this->portNum = portNum;
+}
+
+/**
  * Creates a connection with the server.
  * @param io_service - Provides I/O functionality.
  * @return 0 if the connection is successful and -1 otherwise.
