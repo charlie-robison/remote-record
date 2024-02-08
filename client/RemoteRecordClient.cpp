@@ -17,8 +17,7 @@ RemoteRecordClient::RemoteRecordClient(int portNum) {
  * @param socket - The client socket.
  * @return 0 if message was successfully received and -1 otherwise.
  */
-int RemoteRecordClient::receiveAudio(tcp::socket * socket) {
-    int returnVal;
+void RemoteRecordClient::receiveAudio(tcp::socket * socket) {
     char data[1024];
     size_t bytes_received;
     std::string messageReceived;
@@ -33,13 +32,15 @@ int RemoteRecordClient::receiveAudio(tcp::socket * socket) {
             // Receive data and sets message to the data.
             bytes_received = socket->read_some(boost::asio::buffer(data));
             messageReceived = std::string(data, data + bytes_received);
-            returnVal = 0;
+
+            // Only prints message if something was sent.
+            if (messageReceived.length() > 0) {
+                std::cout << "Message received: " << messageReceived;
+            }
+
         } catch (std::exception& e) {
-            returnVal = -1;
         }
     }
-
-   return returnVal;
 }
 
 /**
@@ -47,21 +48,25 @@ int RemoteRecordClient::receiveAudio(tcp::socket * socket) {
  * @param io_service - Provides I/O functionality.
  * @return 0 if the connection is successful and -1 otherwise.
  */
-int RemoteRecordClient::connectToServer(boost::asio::io_service * io_service) {
+int RemoteRecordClient::connectToServer() {
     int returnVal;
+    boost::asio::io_service io_service;
 
     try {
         // Creates socket for the client.
-        tcp::socket socket(*io_service);
+        tcp::socket socket(io_service);
 
         // Connects to server socket.
-        socket.connect(tcp::endpoint(boost::asio::ip::address::from_string("localhost"), portNum));
+        socket.connect(tcp::endpoint(boost::asio::ip::address::from_string("127.0.0.1"), portNum));
+        std::cout << "Connected to server on port " << portNum << std::endl;
         returnVal = 0;
+
+        receiveAudio(&socket);
 
         // Closes the socket connection with the server.
         socket.close();
     } catch (std::exception& e) {
-        std::cout << "Error" << e.what() << std::endl;
+        std::cout << "Error: " << e.what() << std::endl;
         returnVal = -1;
     }
 

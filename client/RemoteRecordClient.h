@@ -13,10 +13,10 @@ using boost::asio::ip::tcp;
 class RemoteRecordClient {
 private:
     int portNum;
-    int receiveAudio(tcp::socket *);
+    void receiveAudio(tcp::socket *);
 public:
     RemoteRecordClient(int);
-    int connectToServer(boost::asio::io_service *);
+    int connectToServer();
 };
 
 
