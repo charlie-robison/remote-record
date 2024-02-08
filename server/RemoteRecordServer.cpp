@@ -5,6 +5,15 @@
 #include "RemoteRecordServer.h"
 
 /**
+ * Creates a new RemoteRecordServer instance.
+ * @param portNum
+ */
+RemoteRecordServer::RemoteRecordServer(int portNum) {
+    this->portNum = portNum;
+    this->message = "";
+}
+
+/**
  * Sends audio from the server to the client via TCP.
  * @param socket - The client socket.
  * @return 0 if the send was successful and -1 otherwise.
@@ -62,7 +71,7 @@ int RemoteRecordServer::connectToClient(boost::asio::io_context *io_context, tcp
  * Starts the TCP Server.
  * @param portNum - The port number the server process will run on.
  */
-void RemoteRecordServer::startServer(int portNum) {
+void RemoteRecordServer::startServer() {
     try {
         boost::asio::io_context io_context;
 
