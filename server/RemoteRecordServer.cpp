@@ -5,6 +5,24 @@
 #include "RemoteRecordServer.h"
 
 /**
+ * Sends audio from the server to the client via TCP.
+ * @param socket - The client socket.
+ * @return 0 if the send was successful and -1 otherwise.
+ */
+int RemoteRecordServer::sendAudio(tcp::socket * socket) {
+    int returnVal;
+
+    try {
+        // Sends the message to the client TCP socket.
+        boost::asio::write(*socket, boost::asio::buffer(message));
+        returnVal = 0;
+    } catch (std::exception& e) {
+        std::cout << "Error: " << e.what() << std::endl;
+        returnVal = -1;
+    }
+}
+
+/**
  * Connects to a client via TCP.
  * @param io_context - Core I/O functionality.
  * @param acceptor - TCP acceptor object to accept clients.
@@ -12,7 +30,6 @@
  */
 int RemoteRecordServer::connectToClient(boost::asio::io_context *io_context, tcp::acceptor *acceptor) {
     int returnVal;
-    std::string sender, user, message;
     boost::asio::streambuf receive_buffer;
 
     try {

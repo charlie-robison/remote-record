@@ -13,6 +13,8 @@ using boost::asio::ip::tcp;
 
 class RemoteRecordServer {
 private:
+    std::string message;
+
     int sendAudio(tcp::socket *);
     int connectToClient(boost::asio::io_context * io_context, tcp::acceptor * acceptor);
 public:
