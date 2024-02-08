@@ -12,5 +12,5 @@ if(NOT Boost_FOUND)
     message(FATAL_ERROR "Could not find boost!")
 endif()
 
-add_executable(server main.cpp LivePlayServer.cpp LivePlayServer.h)
+add_executable(server main.cpp RemoteRecordServer.cpp RemoteRecordServer.h)
 target_link_libraries(server ${Boost_LIBRARIES})

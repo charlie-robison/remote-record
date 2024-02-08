@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "client",
+					"name" : "server",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "client::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-client-Debug-856f12767da718b4057f.json",
-					"name" : "client",
+					"id" : "server::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-server-Debug-52577844b6e5bb6d9352.json",
+					"name" : "server",
 					"projectIndex" : 0
 				}
 			]
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/client/cmake-build-debug",
-		"source" : "/Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/client"
+		"build" : "/Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/server/cmake-build-debug",
+		"source" : "/Users/charlierobison/Desktop/Github/charlie-robison/Desktop-Apps/remote-record/server"
 	},
 	"version" : 
 	{
